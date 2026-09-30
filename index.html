@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <title>Editec Experience AR</title>
+    <script src="https://cdn.jsdelivr.net/gh/hiukim/mind-ar-js@1.2.5/dist/mindar-image.prod.js"></script>
+    <script src="https://aframe.io/releases/1.8.0/aframe.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/mind-ar@1.2.5/dist/mindar-image-aframe.prod.js"></script>
+    <script>
+        AFRAME.registerComponent("fase-1",{
+                init:function(){
+                    const target=this.el;
+                    target.addEventListener("targetFound",()=>{
+                        const elementos=target.querySelectorAll(".elemento");
+                        elementos.forEach((elemento,i)=>{
+                            setTimeout(()=>{
+                                elemento.setAttribute("visible",true);
+                                elemento.emit("aparecer");
+                            },1800+i*80);
+                        });
+                    });
+                    target.addEventListener("targetLost",()=>{
+                        const elementos=target.querySelectorAll(".elemento");
+                        elementos.forEach(elemento=>{
+                            elemento.setAttribute("visible",false);
+                        });
+                    });
+                }
+            });
+    </script>
+</head>
+<body>
+    <a-scene 
+        mindar-image="imageTargetSrc: ./mind-AR/targets.mind; filterMinCF: 0.01; filterBeta: 100"
+        vr-mode-ui="enabled: false"
+        device-orientation-permission-ui="enabled: false"
+        color-space="sRGB"
+        renderer="colorManagement: false; antialias: true">
+
+        <a-assets>
+            <img id="logo30" src="./resources/letters_and_texts/30_logo.png"/>
+            <img id="t1" src="./resources/letters_and_texts/t_1.png"/>
+            <img id="t2" src="./resources/letters_and_texts/t_2.png"/>
+            <img id="t3" src="./resources/letters_and_texts/t_3.png"/>
+            <img id="t4" src="./resources/letters_and_texts/t_4.png"/>
+            <img id="tc" src="./resources/letters_and_texts/t_c.png"/>
+            <img id="td" src="./resources/letters_and_texts/t_d.png"/>
+            <img id="te" src="./resources/letters_and_texts/t_e.png"/>
+            <img id="tedi" src="./resources/letters_and_texts/t_edi.png"/>
+            <img id="tt" src="./resources/letters_and_texts/t_t.png"/>
+            <img id="ttec" src="./resources/letters_and_texts/t_tec.png"/>
+            <img id="cbi" src="./resources/forms/c_bi.png"/>
+            <img id="cg" src="./resources/forms/c_g.png"/>
+            <img id="cg2" src="./resources/forms/c_g_2.png"/>
+            <img id="cgmedio" src="./resources/forms/c_g_medio.png"/>
+            <img id="cgmini" src="./resources/forms/c_g_mini.png"/>
+            <img id="cob1" src="./resources/forms/c_ob_1.png"/>
+            <img id="cob2" src="./resources/forms/c_ob_2.png"/>
+            <img id="esfchica" src="./resources/forms/esf_chica_96.png"/>
+            <img id="esfgrande" src="./resources/forms/esf_grande.png"/>
+            <img id="fgl" src="./resources/forms/f_g_l.png"/>
+            <img id="fnl" src="./resources/forms/f_n_l.png"/>
+            <img id="pcl1" src="./resources/forms/p_cl_1.png"/>
+            <img id="pcl2" src="./resources/forms/p_cl_2.png"/>
+            <img id="pcl3" src="./resources/forms/p_cl_3.png"/>
+            <img id="pcl4" src="./resources/forms/p_cl_4.png"/>
+            <img id="pme1" src="./resources/forms/p_me_1.png"/>
+            <img id="pme2" src="./resources/forms/p_me_2.png"/>
+            <img id="tr1" src="./resources/forms/tr_1.png"/>
+            <img id="tr26" src="./resources/forms/tr_2_26.png"/>
+        </a-assets>
+
+        <a-camera position="0 0 0" look-controls="enabled: false"></a-camera>
+
+        <a-entity mindar-image-target="targetIndex: 0" fase-1>
+            <a-image class="elemento" src="#logo30" width="0.39" height="0.387" position="0.25 0.65 0.02" visible="false" material="shader: flat; transparent: true" animation__entrada="property: position; from: 0.25 0.35 0.02; to: 0.25 0.65 0.02; dur: 1100; easing: easeOutCubic; startEvents: aparecer"></a-image>
+            <a-image class="elemento" src="#t1" width="0.179" height="0.331" position="-0.32 0.54 0.01" visible="false" material="shader: flat; transparent: true" animation__entrada="property: position; from: -0.32 0.24 0.01; to: -0.32 0.54 0.01; dur: 1100; easing: easeOutCubic; startEvents: aparecer"></a-image>
+            <a-image class="elemento" src="#t2" width="0.179" height="0.331" position="0.38 0.15 0.01" visible="false" material="shader: flat; transparent: true" animation__entrada="property: position; from: 0.38 -0.15 0.01; to: 0.38 0.15 0.01; dur: 1100; easing: easeOutCubic; startEvents: aparecer"></a-image>
+            <a-image class="elemento" src="#t3" width="0.179" height="0.354" position="-0.39 -0.52 0.01" visible="false" material="shader: flat; transparent: true" animation__entrada="property: position; from: -0.39 -0.82 0.01; to: -0.39 -0.52 0.01; dur: 1100; easing: easeOutCubic; startEvents: aparecer"></a-image>
+            <a-image class="elemento" src="#t4" width="0.179" height="0.315" position="0.39 -0.55 0.01" visible="false" material="shader: flat; transparent: true" animation__entrada="property: position; from: 0.39 -0.85 0.01; to: 0.39 -0.55 0.01; dur: 1100; easing: easeOutCubic; startEvents: aparecer"></a-image>
+            <a-image class="elemento" src="#fgl" width="0.36" height="0.612" position="-0.03 0.22 0.04" visible="false" material="shader: flat; transparent: true" animation__entrada="property: position; from: -0.03 -0.08 0.04; to: -0.03 0.22 0.04; dur: 1200; easing: easeOutCubic; startEvents: aparecer"></a-image>
+            <a-image class="elemento" src="#fnl" width="0.36" height="0.653" position="0.27 0.20 0.05" visible="false" material="shader: flat; transparent: true" animation__entrada="property: position; from: 0.27 -0.10 0.05; to: 0.27 0.20 0.05; dur: 1200; easing: easeOutCubic; startEvents: aparecer"></a-image>
+            <a-image class="elemento" src="#esfchica" width="0.128" height="0.131" position="0.40 0.40 0.08" visible="false" material="shader: flat; transparent: true" animation__entrada="property: position; from: 0.40 0.10 0.08; to: 0.40 0.40 0.08; dur: 900; easing: easeOutCubic; startEvents: aparecer"></a-image>
+            <a-image class="elemento" src="#esfgrande" width="0.25" height="0.25" position="-0.39 0.04 0.07" visible="false" material="shader: flat; transparent: true" animation__entrada="property: position; from: -0.39 -0.26 0.07; to: -0.39 0.04 0.07; dur: 1000; easing: easeOutCubic; startEvents: aparecer"></a-image>
+            <a-image class="elemento" src="#cg2" width="0.42" height="0.42" position="-0.12 -0.70 0.03" visible="false" material="shader: flat; transparent: true" animation__entrada="property: position; from: -0.12 -1.00 0.03; to: -0.12 -0.70 0.03; dur: 1200; easing: easeOutCubic; startEvents: aparecer"></a-image>
+            <a-image class="elemento" src="#cg" width="0.28" height="0.28" position="-0.40 -0.25 0.03" visible="false" material="shader: flat; transparent: true" animation__entrada="property: position; from: -0.40 -0.55 0.03; to: -0.40 -0.25 0.03; dur: 1000; easing: easeOutCubic; startEvents: aparecer"></a-image>
+            <a-image class="elemento" src="#cgmedio" width="0.28" height="0.28" position="0.12 0.63 0.03" visible="false" material="shader: flat; transparent: true" animation__entrada="property: position; from: 0.12 0.33 0.03; to: 0.12 0.63 0.03; dur: 1000; easing: easeOutCubic; startEvents: aparecer"></a-image>
+            <a-image class="elemento" src="#cgmini" width="0.16" height="0.16" position="0.38 0.44 0.03" visible="false" material="shader: flat; transparent: true" animation__entrada="property: position; from: 0.38 0.14 0.03; to: 0.38 0.44 0.03; dur: 900; easing: easeOutCubic; startEvents: aparecer"></a-image>
+            <a-image class="elemento" src="#cbi" width="0.149" height="0.149" position="0.17 -0.18 0.03" visible="false" material="shader: flat; transparent: true" animation__entrada="property: position; from: 0.17 -0.48 0.03; to: 0.17 -0.18 0.03; dur: 900; easing: easeOutCubic; startEvents: aparecer"></a-image>
+            <a-image class="elemento" src="#cob1" width="0.099" height="0.099" position="0.36 0.23 0.06" visible="false" material="shader: flat; transparent: true" animation__entrada="property: position; from: 0.36 -0.07 0.06; to: 0.36 0.23 0.06; dur: 800; easing: easeOutCubic; startEvents: aparecer"></a-image>
+            <a-image class="elemento" src="#cob2" width="0.043" height="0.043" position="0.42 -0.08 0.06" visible="false" material="shader: flat; transparent: true" animation__entrada="property: position; from: 0.42 -0.38 0.06; to: 0.42 -0.08 0.06; dur: 800; easing: easeOutCubic; startEvents: aparecer"></a-image>
+            <a-image class="elemento" src="#pcl1" width="0.043" height="0.043" position="0.35 0.04 0.07" visible="false" material="shader: flat; transparent: true" animation__entrada="property: position; from: 0.35 -0.26 0.07; to: 0.35 0.04 0.07; dur: 700; easing: easeOutCubic; startEvents: aparecer"></a-image>
+            <a-image class="elemento" src="#pcl2" width="0.043" height="0.043" position="0.42 -0.01 0.07" visible="false" material="shader: flat; transparent: true" animation__entrada="property: position; from: 0.42 -0.31 0.07; to: 0.42 -0.01 0.07; dur: 700; easing: easeOutCubic; startEvents: aparecer"></a-image>
+            <a-image class="elemento" src="#pcl3" width="0.043" height="0.043" position="0.47 -0.07 0.07" visible="false" material="shader: flat; transparent: true" animation__entrada="property: position; from: 0.47 -0.37 0.07; to: 0.47 -0.07 0.07; dur: 700; easing: easeOutCubic; startEvents: aparecer"></a-image>
+            <a-image class="elemento" src="#pcl4" width="0.043" height="0.043" position="0.27 -0.38 0.07" visible="false" material="shader: flat; transparent: true" animation__entrada="property: position; from: 0.27 -0.68 0.07; to: 0.27 -0.38 0.07; dur: 700; easing: easeOutCubic; startEvents: aparecer"></a-image>
+            <a-image class="elemento" src="#pme1" width="0.043" height="0.043" position="0.05 0.69 0.07" visible="false" material="shader: flat; transparent: true" animation__entrada="property: position; from: 0.05 0.39 0.07; to: 0.05 0.69 0.07; dur: 700; easing: easeOutCubic; startEvents: aparecer"></a-image>
+            <a-image class="elemento" src="#pme2" width="0.043" height="0.043" position="-0.38 0.62 0.07" visible="false" material="shader: flat; transparent: true" animation__entrada="property: position; from: -0.38 0.32 0.07; to: -0.38 0.62 0.07; dur: 700; easing: easeOutCubic; startEvents: aparecer"></a-image>
+            <a-image class="elemento" src="#tr1" width="0.257" height="0.265" position="-0.37 -0.48 0.05" visible="false" material="shader: flat; transparent: true" animation__entrada="property: position; from: -0.37 -0.78 0.05; to: -0.37 -0.48 0.05; dur: 1000; easing: easeOutCubic; startEvents: aparecer"></a-image>
+            <a-image class="elemento" src="#tr26" width="0.19" height="0.196" position="0.35 -0.53 0.05" visible="false" material="shader: flat; transparent: true" animation__entrada="property: position; from: 0.35 -0.83 0.05; to: 0.35 -0.53 0.05; dur: 1000; easing: easeOutCubic; startEvents: aparecer"></a-image>
+            <a-image class="elemento" src="#tedi" width="0.30" height="0.194" position="-0.15 -0.27 0.10" visible="false" material="shader: flat; transparent: true" animation__entrada="property: position; from: -0.15 -0.57 0.10; to: -0.15 -0.27 0.10; dur: 1100; easing: easeOutCubic; startEvents: aparecer"></a-image>
+            <a-image class="elemento" src="#ttec" width="0.30" height="0.161" position="0.14 -0.27 0.10" visible="false" material="shader: flat; transparent: true" animation__entrada="property: position; from: 0.14 -0.57 0.10; to: 0.14 -0.27 0.10; dur: 1100; easing: easeOutCubic; startEvents: aparecer"></a-image>
+            <a-image class="elemento" src="#tc" width="0.09" height="0.159" position="0.39 0.22 0.08" visible="false" material="shader: flat; transparent: true" animation__entrada="property: position; from: 0.39 -0.08 0.08; to: 0.39 0.22 0.08; dur: 900; easing: easeOutCubic; startEvents: aparecer"></a-image>
+            <a-image class="elemento" src="#td" width="0.12" height="0.161" position="-0.45 -0.18 0.08" visible="false" material="shader: flat; transparent: true" animation__entrada="property: position; from: -0.45 -0.48 0.08; to: -0.45 -0.18 0.08; dur: 900; easing: easeOutCubic; startEvents: aparecer"></a-image>
+            <a-image class="elemento" src="#te" width="0.12" height="0.159" position="-0.36 -0.18 0.08" visible="false" material="shader: flat; transparent: true" animation__entrada="property: position; from: -0.36 -0.48 0.08; to: -0.36 -0.18 0.08; dur: 900; easing: easeOutCubic; startEvents: aparecer"></a-image>
+            <a-image class="elemento" src="#tt" width="0.089" height="0.162" position="-0.27 -0.18 0.08" visible="false" material="shader: flat; transparent: true" animation__entrada="property: position; from: -0.27 -0.48 0.08; to: -0.27 -0.18 0.08; dur: 900; easing: easeOutCubic; startEvents: aparecer"></a-image>
+        </a-entity>
+    </a-scene>
+</body>
+</htm>
